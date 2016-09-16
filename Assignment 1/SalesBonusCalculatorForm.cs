@@ -24,6 +24,7 @@ namespace Assignment_1
         double TotalSales;
         string EmployeeName;
         int EmployeeID;
+        double SalesBonus;
 
 
         /// <summary>
@@ -58,7 +59,8 @@ namespace Assignment_1
             //Verify all fields are correct values
             if (VerifyAndAssignValues())
             {
-                MessageBox.Show("Success","Success");
+                SalesBonus = Calculate();
+                SalesBonusTextbox.Text = SalesBonus.ToString("C2");
             }
             //Verify Total Hours Worked does not exceed 160
             //
@@ -175,6 +177,13 @@ namespace Assignment_1
         private void InputError(string Message)
         {
             MessageBox.Show(Message, "Input Error");
+        }
+
+        private double Calculate()
+        {
+            double PercentageOfHoursWorked = HoursWorked / MaxTotalHoursWorked;
+            double TotalBonusAmount = TotalSales * 0.02;
+            return PercentageOfHoursWorked * TotalBonusAmount;
         }
     }
 }
