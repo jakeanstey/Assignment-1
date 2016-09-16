@@ -10,11 +10,22 @@ using System.Windows.Forms;
 
 namespace Assignment_1
 {
-    public partial class Form1 : Form
+    public partial class SalesBonusCalculatorForm : Form
     {
-        public Form1()
+        public SalesBonusCalculatorForm()
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// Called when the form Loads
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // 
+        }
+        
     }
 }
