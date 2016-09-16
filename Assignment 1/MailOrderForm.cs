@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Assignment_1
 {
-    public partial class SalesBonusCalculatorForm : Form
+    public partial class MailOrderForm : Form
     {
-        public SalesBonusCalculatorForm()
+        public MailOrderForm()
         {
             InitializeComponent();
         }

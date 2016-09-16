@@ -16,7 +16,7 @@ namespace Assignment_1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SalesBonusCalculatorForm());
+            Application.Run(new MailOrderForm());
         }
     }
 }

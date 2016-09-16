@@ -1,6 +1,6 @@
 ﻿namespace Assignment_1
 {
-    partial class SalesBonusCalculatorForm
+    partial class MailOrderForm
     {
         /// <summary>
         /// Required designer variable.
