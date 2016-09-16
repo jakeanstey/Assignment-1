@@ -208,6 +208,7 @@
             // 
             // SalesBonusCalculatorForm
             // 
+            this.AcceptButton = this.CalculateButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.ExitButton;
@@ -227,7 +228,9 @@
             this.Controls.Add(this.HoursWorkedLabel);
             this.Controls.Add(this.EmployeeIDLabel);
             this.Controls.Add(this.EmployeeNameLabel);
+            this.MaximizeBox = false;
             this.Name = "SalesBonusCalculatorForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sales Bonus Calculator";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.LanguageGroupBox.ResumeLayout(false);

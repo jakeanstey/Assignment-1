@@ -19,9 +19,11 @@ namespace Assignment_1
         }
 
         //Variables
-        const double TotalHoursWorked = 160;
+        const double MaxTotalHoursWorked = 160;
         double HoursWorked;
         double TotalSales;
+        string EmployeeName;
+        int EmployeeID;
 
 
         /// <summary>
@@ -54,9 +56,12 @@ namespace Assignment_1
         {
             //Calculate 
             //Verify all fields are correct values
-            if (VerifyFields())
+            if (VerifyAndAssignValues())
             {
-
+                MessageBox.Show("Success","Success");
+            }else
+            {
+                MessageBox.Show("Invalid data entry", "Input Error");
             }
             //Verify Total Hours Worked does not exceed 160
             //
@@ -76,29 +81,40 @@ namespace Assignment_1
         /// Will verify every field at once for valid length and values
         /// </summary>
         /// <returns></returns>
-        private Boolean VerifyFields()
+        private Boolean VerifyAndAssignValues()
         {
             if(EmployeeNameTextbox.TextLength == 0)
             {
+                Debug.WriteLine("Employee name too short");
                 return false;
             }
-            if(EmployeeIDTextbox.TextLength == 0)
-            {
-                if(EmployeeIDTextbox.GetType() == int)
-                {
 
-                }
-                return false;
-            }
-            if(HoursWorkedTextbox.TextLength == 0)
-            {
-                return false;
-            }else
+            EmployeeName = EmployeeNameTextbox.Text;
+
+            if(EmployeeIDTextbox.TextLength > 0)
             {
                 try
                 {
-                    if (Convert.ToInt16(HoursWorkedTextbox.Text) > 160)
+                    EmployeeID = Convert.ToInt16(EmployeeIDTextbox.Text);
+                }
+                catch (Exception exception)
+                {
+                    Debug.WriteLine(exception);
+                    return false;
+                }
+            }else
+            {
+                Debug.WriteLine("EmployeeID is too short");
+                return false;
+            }
+
+            if(HoursWorkedTextbox.TextLength > 0)
+            {
+                try
+                {
+                    if (Convert.ToInt16(HoursWorkedTextbox.Text) > MaxTotalHoursWorked)
                     {
+                        Debug.WriteLine("Hours worked is greater than 160");
                         return false;
                     }
                 }
@@ -110,8 +126,28 @@ namespace Assignment_1
                     return false;
                 }
             }
-            if(TotalSalesTextbox.TextLength == 0)
+            else
             {
+                Debug.WriteLine("Hours worked too short");
+                return false;
+            }
+
+            HoursWorked = Convert.ToInt16(HoursWorkedTextbox.Text);
+
+            if(TotalSalesTextbox.TextLength > 0)
+            {
+                try
+                {
+                    TotalSales = Convert.ToInt16(TotalSalesTextbox.Text);
+                }
+                catch (Exception exception)
+                {
+                    Debug.WriteLine(exception);
+                    return false;
+                }
+            }else
+            {
+                Debug.WriteLine("Total sales is empty");
                 return false;
             }
 
