@@ -59,9 +59,6 @@ namespace Assignment_1
             if (VerifyAndAssignValues())
             {
                 MessageBox.Show("Success","Success");
-            }else
-            {
-                MessageBox.Show("Invalid data entry", "Input Error");
             }
             //Verify Total Hours Worked does not exceed 160
             //
@@ -85,7 +82,8 @@ namespace Assignment_1
         {
             if(EmployeeNameTextbox.TextLength == 0)
             {
-                Debug.WriteLine("Employee name too short");
+                EmployeeNameTextbox.Focus();
+                InputError("Employee name must not be blank.");
                 return false;
             }
 
@@ -99,12 +97,14 @@ namespace Assignment_1
                 }
                 catch (Exception exception)
                 {
-                    Debug.WriteLine(exception);
+                    FocusAndClear(EmployeeIDTextbox);
+                    InputError("EmployeeID is not a number.");
                     return false;
                 }
             }else
             {
-                Debug.WriteLine("EmployeeID is too short");
+                EmployeeIDTextbox.Focus();
+                InputError("Employee ID must not be blank.");
                 return false;
             }
 
@@ -114,21 +114,22 @@ namespace Assignment_1
                 {
                     if (Convert.ToInt16(HoursWorkedTextbox.Text) > MaxTotalHoursWorked)
                     {
-                        Debug.WriteLine("Hours worked is greater than 160");
+                        FocusAndClear(HoursWorkedTextbox);
+                        InputError("Hours worked is greater than the limit: " + MaxTotalHoursWorked);
                         return false;
                     }
                 }
                 catch (Exception exception)
                 {
-                    Debug.WriteLine(exception.Message);
-                    MessageBox.Show("Invalid data entered", "Input Error");
-                    HoursWorkedTextbox.Focus();
+                    FocusAndClear(HoursWorkedTextbox);
+                    InputError("Hours worked field must be a number.");
                     return false;
                 }
             }
             else
             {
-                Debug.WriteLine("Hours worked too short");
+                HoursWorkedTextbox.Focus();
+                InputError("Hours worked must not be blank.");
                 return false;
             }
 
@@ -142,16 +143,38 @@ namespace Assignment_1
                 }
                 catch (Exception exception)
                 {
-                    Debug.WriteLine(exception);
+                    FocusAndClear(TotalSalesTextbox);
+                    InputError("Total sales must be a number.");
                     return false;
                 }
             }else
             {
-                Debug.WriteLine("Total sales is empty");
+                TotalSalesTextbox.Focus();
+                InputError("Total sales must not be blank.");
                 return false;
             }
 
             return true;
+        }
+
+        /// <summary>
+        /// Will set focus on the text box and set the value to 0
+        /// </summary>
+        /// <param name="box"></param>
+        private void FocusAndClear(TextBox Box)
+        {
+            Box.Text = "0";
+            Box.Focus();
+            Box.SelectAll();
+        }
+
+        /// <summary>
+        /// Easier way to show message dialog for Input Error(s)
+        /// </summary>
+        /// <param name="Message"></param>
+        private void InputError(string Message)
+        {
+            MessageBox.Show(Message, "Input Error");
         }
     }
 }
