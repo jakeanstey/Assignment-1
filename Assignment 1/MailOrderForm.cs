@@ -19,12 +19,12 @@ namespace Assignment_1
         }
 
         //Variables
-        const double MaxTotalHoursWorked = 160;
-        double HoursWorked;
-        double TotalSales;
-        string EmployeeName;
-        int EmployeeID;
-        double SalesBonus;
+        private const double _MaxTotalHoursWorked = 160;
+        private double _HoursWorked;
+        private double _TotalSales;
+        private string _EmployeeName;
+        private int _EmployeeID;
+        private double _SalesBonus;
 
 
         /// <summary>
@@ -59,8 +59,8 @@ namespace Assignment_1
             //Verify all fields are correct values
             if (VerifyAndAssignValues())
             {
-                SalesBonus = Calculate();
-                SalesBonusTextbox.Text = SalesBonus.ToString("C2");
+                _SalesBonus = Calculate();
+                SalesBonusTextbox.Text = _SalesBonus.ToString("C2");
             }
             //Verify Total Hours Worked does not exceed 160
             //
@@ -89,13 +89,13 @@ namespace Assignment_1
                 return false;
             }
 
-            EmployeeName = EmployeeNameTextbox.Text;
+            _EmployeeName = EmployeeNameTextbox.Text;
 
             if(EmployeeIDTextbox.TextLength > 0)
             {
                 try
                 {
-                    EmployeeID = Convert.ToInt16(EmployeeIDTextbox.Text);
+                    _EmployeeID = Convert.ToInt16(EmployeeIDTextbox.Text);
                 }
                 catch (Exception exception)
                 {
@@ -114,10 +114,10 @@ namespace Assignment_1
             {
                 try
                 {
-                    if (Convert.ToInt16(HoursWorkedTextbox.Text) > MaxTotalHoursWorked)
+                    if (Convert.ToInt16(HoursWorkedTextbox.Text) > _MaxTotalHoursWorked)
                     {
                         FocusAndClear(HoursWorkedTextbox);
-                        InputError("Hours worked is greater than the limit: " + MaxTotalHoursWorked);
+                        InputError("Hours worked is greater than the limit: " + _MaxTotalHoursWorked);
                         return false;
                     }
                 }
@@ -135,13 +135,13 @@ namespace Assignment_1
                 return false;
             }
 
-            HoursWorked = Convert.ToInt16(HoursWorkedTextbox.Text);
+            _HoursWorked = Convert.ToInt16(HoursWorkedTextbox.Text);
 
             if(TotalSalesTextbox.TextLength > 0)
             {
                 try
                 {
-                    TotalSales = Convert.ToInt16(TotalSalesTextbox.Text);
+                    _TotalSales = Convert.ToInt16(TotalSalesTextbox.Text);
                 }
                 catch (Exception exception)
                 {
@@ -181,8 +181,8 @@ namespace Assignment_1
 
         private double Calculate()
         {
-            double PercentageOfHoursWorked = HoursWorked / MaxTotalHoursWorked;
-            double TotalBonusAmount = TotalSales * 0.02;
+            double PercentageOfHoursWorked = _HoursWorked / _MaxTotalHoursWorked;
+            double TotalBonusAmount = _TotalSales * 0.02;
             return PercentageOfHoursWorked * TotalBonusAmount;
         }
     }
