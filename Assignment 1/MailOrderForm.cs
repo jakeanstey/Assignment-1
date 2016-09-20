@@ -11,6 +11,8 @@ using System.Windows.Forms;
 
 namespace Assignment_1
 {
+
+    public enum Language { English, French };
     public partial class MailOrderForm : Form
     {
         public MailOrderForm()
@@ -35,6 +37,7 @@ namespace Assignment_1
         private void Form1_Load(object sender, EventArgs e)
         {
             //Start up code
+            Language English;
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
@@ -69,11 +72,45 @@ namespace Assignment_1
         private void EnglishRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             //Change language to english
+            ChangeLanguage("english");
         }
 
         private void FrenchRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             //change language to french
+            ChangeLanguage("french");
+        }
+
+        private void ChangeLanguage(string Language)
+        {
+            if(Language == "french")
+            {
+                EmployeeNameLabel.Text = "Le nom de l'employé";
+                HoursWorkedLabel.Text = "Heures travaillées";
+                TotalSalesLabel.Text = "Ventes totales";
+                SalesBonusLabel.Text = "Bonus de vente";
+                CalculateButton.Text = "Calculer";
+                PrintButton.Text = "Impression";
+                ExitButton.Text = "Sortie";
+                NextButton.Text = "Prochain";
+                FrenchRadioButton.Text = "français";
+                EnglishRadioButton.Text = "Anglais";
+                LanguageGroupBox.Text = "La langue";
+            }
+            else if (Language == "english")
+            {
+                EmployeeNameLabel.Text = "Employee's Name";
+                HoursWorkedLabel.Text = "Hours Worked";
+                TotalSalesLabel.Text = "Total Sales";
+                SalesBonusLabel.Text = "Sales Bonus";
+                CalculateButton.Text = "Calculate";
+                PrintButton.Text = "Print";
+                ExitButton.Text = "Exit";
+                NextButton.Text = "Next";
+                FrenchRadioButton.Text = "French";
+                EnglishRadioButton.Text = "English";
+                LanguageGroupBox.Text = "Language";
+            }
         }
 
         /// <summary>
@@ -141,7 +178,7 @@ namespace Assignment_1
             {
                 try
                 {
-                    _TotalSales = Convert.ToInt16(TotalSalesTextbox.Text);
+                    _TotalSales = Convert.ToInt32(TotalSalesTextbox.Text);
                 }
                 catch (Exception exception)
                 {

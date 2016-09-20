@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.ExitButton = new System.Windows.Forms.Button();
-            this.ClearButton = new System.Windows.Forms.Button();
+            this.NextButton = new System.Windows.Forms.Button();
             this.CalculateButton = new System.Windows.Forms.Button();
             this.FrenchRadioButton = new System.Windows.Forms.RadioButton();
             this.EnglishRadioButton = new System.Windows.Forms.RadioButton();
@@ -59,15 +59,15 @@
             this.ExitButton.UseVisualStyleBackColor = true;
             this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
-            // ClearButton
+            // NextButton
             // 
-            this.ClearButton.Location = new System.Drawing.Point(126, 147);
-            this.ClearButton.Name = "ClearButton";
-            this.ClearButton.Size = new System.Drawing.Size(75, 23);
-            this.ClearButton.TabIndex = 16;
-            this.ClearButton.Text = "Clear";
-            this.ClearButton.UseVisualStyleBackColor = true;
-            this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
+            this.NextButton.Location = new System.Drawing.Point(126, 147);
+            this.NextButton.Name = "NextButton";
+            this.NextButton.Size = new System.Drawing.Size(75, 23);
+            this.NextButton.TabIndex = 16;
+            this.NextButton.Text = "Next";
+            this.NextButton.UseVisualStyleBackColor = true;
+            this.NextButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
             // CalculateButton
             // 
@@ -206,7 +206,7 @@
             this.LanguageGroupBox.TabStop = false;
             this.LanguageGroupBox.Text = "Language";
             // 
-            // SalesBonusCalculatorForm
+            // MailOrderForm
             // 
             this.AcceptButton = this.CalculateButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -215,7 +215,7 @@
             this.ClientSize = new System.Drawing.Size(421, 234);
             this.Controls.Add(this.LanguageGroupBox);
             this.Controls.Add(this.ExitButton);
-            this.Controls.Add(this.ClearButton);
+            this.Controls.Add(this.NextButton);
             this.Controls.Add(this.PrintButton);
             this.Controls.Add(this.CalculateButton);
             this.Controls.Add(this.SalesBonusTextbox);
@@ -229,7 +229,7 @@
             this.Controls.Add(this.EmployeeIDLabel);
             this.Controls.Add(this.EmployeeNameLabel);
             this.MaximizeBox = false;
-            this.Name = "SalesBonusCalculatorForm";
+            this.Name = "MailOrderForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sales Bonus Calculator";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -243,7 +243,7 @@
         #endregion
 
         private System.Windows.Forms.Button ExitButton;
-        private System.Windows.Forms.Button ClearButton;
+        private System.Windows.Forms.Button NextButton;
         private System.Windows.Forms.Button CalculateButton;
         private System.Windows.Forms.RadioButton FrenchRadioButton;
         private System.Windows.Forms.RadioButton EnglishRadioButton;
