@@ -11,8 +11,6 @@ using System.Windows.Forms;
 
 namespace Assignment_1
 {
-
-    public enum Language { English, French };
     public partial class MailOrderForm : Form
     {
         public MailOrderForm()
@@ -36,8 +34,7 @@ namespace Assignment_1
         /// <param name="e"></param>
         private void Form1_Load(object sender, EventArgs e)
         {
-            //Start up code
-            Language English;
+
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
@@ -46,14 +43,10 @@ namespace Assignment_1
             Application.Exit();
         }
 
-        private void ClearButton_Click(object sender, EventArgs e)
-        {
-            //Clear the form
-        }
-
         private void PrintButton_Click(object sender, EventArgs e)
         {
-            //Pop up dialog informing user of the print job
+            //alert user the calculations are printing
+            MessageBox.Show("Your calulations are printing.", "Print");
         }
 
         private void CalculateButton_Click(object sender, EventArgs e)
@@ -221,6 +214,16 @@ namespace Assignment_1
             double PercentageOfHoursWorked = _HoursWorked / _MaxTotalHoursWorked;
             double TotalBonusAmount = _TotalSales * 0.02;
             return PercentageOfHoursWorked * TotalBonusAmount;
+        }
+
+        private void NextButton_Click(object sender, EventArgs e)
+        {
+            EmployeeIDTextbox.Text = "";
+            EmployeeNameTextbox.Text = "";
+            HoursWorkedTextbox.Text = "";
+            TotalSalesTextbox.Text = "";
+            SalesBonusTextbox.Text = "";
+            EmployeeNameTextbox.Focus();
         }
     }
 }

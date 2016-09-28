@@ -71,7 +71,7 @@
             this.NextButton.TabIndex = 16;
             this.NextButton.Text = "Next";
             this.NextButton.UseVisualStyleBackColor = true;
-            this.NextButton.Click += new System.EventHandler(this.ClearButton_Click);
+            this.NextButton.Click += new System.EventHandler(this.NextButton_Click);
             // 
             // CalculateButton
             // 
