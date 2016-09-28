@@ -15,10 +15,10 @@ namespace Assignment_1
     {
         public MailOrderForm()
         {
+            //Do not touch this.
             InitializeComponent();
         }
-
-        //Variables
+        
         private const double _MaxTotalHoursWorked = 160;
         private double _HoursWorked;
         private double _TotalSales;
@@ -34,21 +34,37 @@ namespace Assignment_1
         /// <param name="e"></param>
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            //Don't think I need to include anything here sadly.
+            //Would be the start up code
         }
 
+        /// <summary>
+        /// Monitor the click function for the exit button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ExitButton_Click(object sender, EventArgs e)
         {
             //Exit the application
             Application.Exit();
         }
 
+        /// <summary>
+        /// Monitor the click function for the print button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PrintButton_Click(object sender, EventArgs e)
         {
             //alert user the calculations are printing
             MessageBox.Show("Your calulations are printing.", "Print");
         }
 
+        /// <summary>
+        /// Monitor the click function for the calculate button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CalculateButton_Click(object sender, EventArgs e)
         {
             //Calculate 
@@ -58,22 +74,34 @@ namespace Assignment_1
                 _SalesBonus = Calculate();
                 SalesBonusTextbox.Text = _SalesBonus.ToString("C2");
             }
-            //Verify Total Hours Worked does not exceed 160
-            //
         }
 
+        /// <summary>
+        /// Swaps language to English. Used best with a radio button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EnglishRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             //Change language to english
             ChangeLanguage("english");
         }
 
+        /// <summary>
+        /// Swaps the language to french. Used best with a radio button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrenchRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             //change language to french
             ChangeLanguage("french");
         }
 
+        /// <summary>
+        /// Manually swaps the language based on user preference. Final variables set here, careful!
+        /// </summary>
+        /// <param name="Language"></param>
         private void ChangeLanguage(string Language)
         {
             if(Language == "french")
@@ -112,6 +140,7 @@ namespace Assignment_1
         /// <returns></returns>
         private Boolean VerifyAndAssignValues()
         {
+            //check to see if the employee name field is blank
             if(EmployeeNameTextbox.TextLength == 0)
             {
                 EmployeeNameTextbox.Focus();
@@ -121,8 +150,10 @@ namespace Assignment_1
 
             _EmployeeName = EmployeeNameTextbox.Text;
 
+            //make sure the id field is not blank
             if(EmployeeIDTextbox.TextLength > 0)
             {
+                //try catch conversion to see if id is actually a number
                 try
                 {
                     _EmployeeID = Convert.ToInt16(EmployeeIDTextbox.Text);
@@ -140,10 +171,13 @@ namespace Assignment_1
                 return false;
             }
 
+            //make sure hours worked is not null
             if(HoursWorkedTextbox.TextLength > 0)
             {
+                //try catch conversion to int to see if hours worked is an int
                 try
                 {
+                    //make sure hours worked is not greater than the max as defined
                     if (Convert.ToInt16(HoursWorkedTextbox.Text) > _MaxTotalHoursWorked)
                     {
                         FocusAndClear(HoursWorkedTextbox);
@@ -167,8 +201,10 @@ namespace Assignment_1
 
             _HoursWorked = Convert.ToInt16(HoursWorkedTextbox.Text);
 
+            //make sure total sales is not null
             if(TotalSalesTextbox.TextLength > 0)
             {
+                //try catch to verify total sales is an int
                 try
                 {
                     _TotalSales = Convert.ToInt32(TotalSalesTextbox.Text);
@@ -186,6 +222,7 @@ namespace Assignment_1
                 return false;
             }
 
+            //all is good here, we can move on
             return true;
         }
 
@@ -209,6 +246,10 @@ namespace Assignment_1
             MessageBox.Show(Message, "Input Error");
         }
 
+        /// <summary>
+        /// Will calculate the sales bonus for employee
+        /// </summary>
+        /// <returns></returns>
         private double Calculate()
         {
             double PercentageOfHoursWorked = _HoursWorked / _MaxTotalHoursWorked;
@@ -218,6 +259,7 @@ namespace Assignment_1
 
         private void NextButton_Click(object sender, EventArgs e)
         {
+            //simulate "Next" button
             EmployeeIDTextbox.Text = "";
             EmployeeNameTextbox.Text = "";
             HoursWorkedTextbox.Text = "";
