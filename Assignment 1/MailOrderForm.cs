@@ -266,7 +266,6 @@ namespace Assignment_1
             EmployeeNameTextbox.Text = "";
             HoursWorkedTextbox.Text = "";
             TotalSalesTextbox.Text = "";
-            SalesBonusTextbox.Text = "";
             EmployeeNameTextbox.Focus();
         }
     }
