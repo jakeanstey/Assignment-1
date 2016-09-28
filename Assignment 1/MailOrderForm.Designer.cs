@@ -45,7 +45,11 @@
             this.EmployeeNameLabel = new System.Windows.Forms.Label();
             this.PrintButton = new System.Windows.Forms.Button();
             this.LanguageGroupBox = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.LogoPictureBox = new System.Windows.Forms.PictureBox();
             this.LanguageGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // ExitButton
@@ -82,7 +86,7 @@
             // FrenchRadioButton
             // 
             this.FrenchRadioButton.AutoSize = true;
-            this.FrenchRadioButton.Location = new System.Drawing.Point(1, 42);
+            this.FrenchRadioButton.Location = new System.Drawing.Point(6, 45);
             this.FrenchRadioButton.Name = "FrenchRadioButton";
             this.FrenchRadioButton.Size = new System.Drawing.Size(58, 17);
             this.FrenchRadioButton.TabIndex = 13;
@@ -94,7 +98,7 @@
             // 
             this.EnglishRadioButton.AutoSize = true;
             this.EnglishRadioButton.Checked = true;
-            this.EnglishRadioButton.Location = new System.Drawing.Point(0, 19);
+            this.EnglishRadioButton.Location = new System.Drawing.Point(5, 23);
             this.EnglishRadioButton.Name = "EnglishRadioButton";
             this.EnglishRadioButton.Size = new System.Drawing.Size(59, 17);
             this.EnglishRadioButton.TabIndex = 12;
@@ -199,12 +203,30 @@
             // 
             this.LanguageGroupBox.Controls.Add(this.EnglishRadioButton);
             this.LanguageGroupBox.Controls.Add(this.FrenchRadioButton);
-            this.LanguageGroupBox.Location = new System.Drawing.Point(207, 8);
+            this.LanguageGroupBox.Location = new System.Drawing.Point(207, 12);
             this.LanguageGroupBox.Name = "LanguageGroupBox";
             this.LanguageGroupBox.Size = new System.Drawing.Size(73, 69);
             this.LanguageGroupBox.TabIndex = 18;
             this.LanguageGroupBox.TabStop = false;
             this.LanguageGroupBox.Text = "Language";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(-23, -46);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox1.TabIndex = 19;
+            this.pictureBox1.TabStop = false;
+            // 
+            // LogoPictureBox
+            // 
+            this.LogoPictureBox.Image = global::Assignment_1.Properties.Resources.DollarSign;
+            this.LogoPictureBox.Location = new System.Drawing.Point(292, 24);
+            this.LogoPictureBox.Name = "LogoPictureBox";
+            this.LogoPictureBox.Size = new System.Drawing.Size(117, 181);
+            this.LogoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.LogoPictureBox.TabIndex = 20;
+            this.LogoPictureBox.TabStop = false;
             // 
             // MailOrderForm
             // 
@@ -213,6 +235,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.ExitButton;
             this.ClientSize = new System.Drawing.Size(421, 234);
+            this.Controls.Add(this.LogoPictureBox);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.LanguageGroupBox);
             this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.NextButton);
@@ -235,6 +259,8 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.LanguageGroupBox.ResumeLayout(false);
             this.LanguageGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -259,6 +285,8 @@
         private System.Windows.Forms.Label EmployeeNameLabel;
         private System.Windows.Forms.Button PrintButton;
         private System.Windows.Forms.GroupBox LanguageGroupBox;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox LogoPictureBox;
     }
 }
 
