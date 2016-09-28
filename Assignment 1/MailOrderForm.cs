@@ -18,7 +18,7 @@ namespace Assignment_1
             //Do not touch this.
             InitializeComponent();
         }
-        
+
         private const double _MaxTotalHoursWorked = 160;
         private double _HoursWorked;
         private double _TotalSales;
@@ -104,7 +104,7 @@ namespace Assignment_1
         /// <param name="Language"></param>
         private void ChangeLanguage(string Language)
         {
-            if(Language == "french")
+            if (Language == "french")
             {
                 EmployeeNameLabel.Text = "Le nom de l'employé";
                 HoursWorkedLabel.Text = "Heures travaillées";
@@ -141,7 +141,7 @@ namespace Assignment_1
         private Boolean VerifyAndAssignValues()
         {
             //check to see if the employee name field is blank
-            if(EmployeeNameTextbox.TextLength == 0)
+            if (EmployeeNameTextbox.TextLength == 0)
             {
                 EmployeeNameTextbox.Focus();
                 InputError("Employee name must not be blank.");
@@ -151,7 +151,7 @@ namespace Assignment_1
             _EmployeeName = EmployeeNameTextbox.Text;
 
             //make sure the id field is not blank
-            if(EmployeeIDTextbox.TextLength > 0)
+            if (EmployeeIDTextbox.TextLength > 0)
             {
                 //try catch conversion to see if id is actually a number
                 try
@@ -164,7 +164,8 @@ namespace Assignment_1
                     InputError("EmployeeID is not a number.");
                     return false;
                 }
-            }else
+            }
+            else
             {
                 EmployeeIDTextbox.Focus();
                 InputError("Employee ID must not be blank.");
@@ -172,7 +173,7 @@ namespace Assignment_1
             }
 
             //make sure hours worked is not null
-            if(HoursWorkedTextbox.TextLength > 0)
+            if (HoursWorkedTextbox.TextLength > 0)
             {
                 //try catch conversion to int to see if hours worked is an int
                 try
@@ -202,7 +203,7 @@ namespace Assignment_1
             _HoursWorked = Convert.ToInt16(HoursWorkedTextbox.Text);
 
             //make sure total sales is not null
-            if(TotalSalesTextbox.TextLength > 0)
+            if (TotalSalesTextbox.TextLength > 0)
             {
                 //try catch to verify total sales is an int
                 try
@@ -215,7 +216,8 @@ namespace Assignment_1
                     InputError("Total sales must be a number.");
                     return false;
                 }
-            }else
+            }
+            else
             {
                 TotalSalesTextbox.Focus();
                 InputError("Total sales must not be blank.");
